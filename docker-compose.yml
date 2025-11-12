@@ -1,0 +1,14 @@
+version: "3.8"   # docker-compose のバージョン
+
+services:        # ここに「使いたいサービス」を並べる
+  mongo:         # サービス名（自由につけてOK）
+    image: mongo:6   # DockerHubからMongoDBバージョン6のイメージを使う
+    container_name: mongo  # コンテナ名（分かりやすく"mongo"にした）
+    restart: always        # 再起動ポリシー（PC再起動時も勝手に再起動してくれる）
+    ports:
+      - "27017:27017"      # ホストPC:コンテナ のポート対応
+    volumes:
+      - mongo_data:/data/db # データ保存先をマウント（消えないようにする）
+
+volumes:          # ボリューム定義
+  mongo_data:     # 名前付きボリューム
