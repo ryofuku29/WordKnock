@@ -26,7 +26,8 @@ export default function AddWordsPage() {
   );
 
   const addWord = () => {
-    if (!englishWord.trim() || !englishWord.trim()) return alert("add word");
+    if (!englishWord.trim() || !japaneseWord.trim())
+      return alert("add some words");
     const newWord: Word = {
       id: uuid(),
       englishWord: englishWord.trim(),
